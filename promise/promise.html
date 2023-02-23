@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise and async await function </title>
+</head>
+<body>
+    
+<h1>promise function</h1>
+
+
+
+
+
+
+<script>
+    //  creat an array
+const datas =[
+    {name:"Ayan Dey", profression: "software engineer"},
+    {name:"Chayan patra", profression: "software engineer"}
+
+];
+
+
+// function getdatas() {
+    
+// setTimeout(() => {
+//     output="";
+    
+//     datas.forEach((data, index)=>{
+// output += `<li> ${data.name}</li>`;
+//     })
+
+// document.body.innerHTML=output;
+// }, 1000);
+
+// }
+
+
+// // I will creat another function for better understanding
+// function creatdata(newdata, callbacks) {
+//     setTimeout(() => {
+//         datas.push(newdata);
+//         callbacks();
+//     }, 2000);
+// }
+
+// creatdata( {name:"Manas patra", profression: "software engineer"},getdatas
+// );
+
+
+// ---------
+
+
+function getdatas() {
+    
+    setTimeout(() => {
+        output="";
+        
+        datas.forEach((data, index)=>{
+    output += `<li> ${data.name}</li>`;
+        })
+    
+    document.body.innerHTML=output;
+    }, 1000);
+    
+    }
+    
+    // javascript async / await 
+    //  Callbacks and Promise
+
+
+    // I will creat another function for better understanding
+    function creatdata(newdata) {
+
+        return new Promise((resolve, reject)=>{
+
+        setTimeout(() => {
+            datas.push(newdata);
+         let error=false;
+
+         if (!error) {
+            resolve();
+         } else {
+            reject("kichu vul hoi6e");
+         }
+
+
+
+        }, 2000);
+    })
+
+
+    }
+    
+    // creatdata( {name:"Manas patra", profression: "software engineer"}).then(getdatas).catch(err=>console.log(err));
+    
+    // async / await
+
+    async function start() {
+
+        await creatdata( {name:"Manas patra", profression: "software engineer"})
+        getdatas();
+    }
+    
+    start();
+    // when await function is complete 
+
+
+
+</script>
+</body>
+</html>
